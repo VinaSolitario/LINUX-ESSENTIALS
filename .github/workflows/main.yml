@@ -19,14 +19,14 @@ jobs:
 
       - name: Run logging script
         run: |
-          chmod +x log_time.sh
-          ./log_time.sh
+          chmod +x log_time.sh  # Make the script executable
+          ./log_time.sh  # Run the script
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git pull origin main --rebase # Prevent push conflicts by rebasing
+          git pull origin main  # Prevent push conflicts
           git add log.txt
           git commit -m "Update log file with new timestamp and counter" || echo "No changes to commit"
           git push origin main
